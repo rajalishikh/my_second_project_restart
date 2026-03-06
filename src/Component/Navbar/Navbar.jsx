@@ -2,7 +2,7 @@
 const Navbar = () => {
     return (
         <div>
-            <div className=" navbar bg-base-100 shadow-sm lg:pr-14  lg:pl-14  ">
+            <div className="navbar bg-base-100  max-w-7xl mx-auto  ">
   <div className="navbar-start">
     
     <a className="text-[#130B2D] font-bold lg:text-2xl">CS — Ticket System</a>
