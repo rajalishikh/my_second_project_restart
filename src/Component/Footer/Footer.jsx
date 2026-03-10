@@ -48,7 +48,7 @@ const Footer = () => {
             <li className="flex items-center gap-2">
                <div className="bg-white rounded-xl p-1 text-black">
                 <CiLinkedin />
-                </div><a href="#" className="hover:text-white transition text-black">@CS — Ticket System</a>
+                </div><a href="#" className="hover:text-white transition ">@CS — Ticket System</a>
             </li>
             <li className="flex items-center gap-2">
                <div className="bg-white rounded-xl p-1 text-black">
