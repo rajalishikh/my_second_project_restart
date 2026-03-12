@@ -14,33 +14,32 @@ const Main_Section = ({cards}) => {
       {/* Top Section: Title and Status */}
       <div className="flex justify-between items-start mb-3">
         <h2 className="text-[22px] font-semibold text-[#1e293b] leading-tight">
-          {item.tittle}
+          {item.title}
         </h2>
-        <div className="flex items-center bg-[#dcfce7] px-4 py-1.5 rounded-full">
-          <div className="w-2.5 h-2.5 bg-[#16a34a] rounded-full mr-2"></div>
-          <span className="text-[#166534] text-sm font-medium">Open</span>
+        <div className={`flex items-center ${item.status==="open"?"bg-[#dcfce7]":"bg-[#F8F3B9]"}  px-4 py-1.5 rounded-full`}>
+          <div className={`w-2.5 h-2.5 rounded-full mr-2 ${item.status==="open"? "bg-[#16a34a]" : "bg-[#FEBB0C]"}`} ></div>
+          <span className={`${item.status === "open" ? "text-[#166534]" : "text-[#9C7700]"} text-sm font-medium`}>{item.status}</span>
         </div>
       </div>
 
       {/* Description Section */}
       <div className="mb-8">
         <p className="text-[#64748b] text-lg leading-relaxed">
-          Customer is unable to log in to their account. They've tried 
-          resetting their password multiple times but still...
+          {item.description}
         </p>
       </div>
 
       {/* Footer Section: Metadata */}
       <div className="flex items-center justify-between text-[#64748b]">
         <div className="flex items-center gap-6">
-          <span className="text-sm font-normal">#1001</span>
-          <span className="text-[#ef4444] text-xs font-bold tracking-widest uppercase">
-            High Priority
+          <span className="text-sm font-normal">#{item.id}</span>
+          <span className={`${item.priority==="highpriority"?"text-red-600":item.priority==="MEDIUM PRIORITY"?"text-yellow-500":"text-green-500"} text-xs font-bold tracking-widest uppercase`}>
+           {item.priority}
           </span>
         </div>
 
         <div className="flex items-center gap-6">
-          <span className="text-sm font-medium">John Smith</span>
+          <span className="text-sm font-medium">{item.customer}</span>
           <div className="flex items-center gap-2">
             {/* Simple Calendar SVG Icon */}
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -49,7 +48,7 @@ const Main_Section = ({cards}) => {
               <line x1="8" y1="2" x2="8" y2="6"></line>
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
-            <span className="text-sm">1/15/2024</span>
+            <span className="text-sm">{item.createdAt}</span>
           </div>
         </div>
       </div>

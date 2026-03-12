@@ -13,36 +13,36 @@
     "title": "Payment Failure",
     "description": "Credit card transactions are failing at checkout.",
     "customer": "Karim Ullah",
-    "priority": "highpriority",
+    "priority": "MEDIUM PRIORITY",
     "status": "In Progress",
-    "createdAt": "1/15/2024"
+    "createdAt": "2/19/2024"
   },
   {
     "id": 1003,
     "title": "UI Bug on Dashboard",
     "description": "The charts are overlapping on mobile view.",
     "customer": "Sara Islam",
-    "priority": "low priority",
+    "priority": "MEDIUM PRIORITY",
     "status": "open",
-    "createdAt": "1/15/2024"
+    "createdAt": "3/35/2024"
   },
   {
     "id": 1004,
     "title": "Slow Page Load",
     "description": "Product listing page takes more than 5 seconds to load.",
     "customer": "Tanvir Hasan",
-    "priority": "medium priority",
+    "priority": "MEDIUM PRIORITY",
     "status": "In Progress",
-    "createdAt": "1/15/2024"
+    "createdAt": "7/45/2024"
   },
   {
     "id": 1005,
     "title": "Email Notification Delay",
     "description": "Welcome emails are arriving 2 hours late.",
     "customer": "Nila Akter",
-    "priority": "medium priority",
+    "priority": "MEDIUM PRIORITY",
     "status": "open",
-    "createdAt": "1/15/2024"
+    "createdAt": "6/25/2024"
   },
   {
     "id": 1006,
@@ -51,7 +51,7 @@
     "customer": "Arif Rayhan",
     "priority": "highpriority",
     "status": "In Progress",
-    "createdAt": "1/15/2024"
+    "createdAt": "7/25/2024"
   },
   {
     "id": 1007,
@@ -60,7 +60,7 @@
     "customer": "Farhana Yeasmin",
     "priority": "low priority",
     "status": "open",
-    "createdAt": "1/15/2024"
+    "createdAt": "8/25/2024"
   },
   {
     "id": 1008,
@@ -69,7 +69,7 @@
     "customer": "Internal System",
     "priority": "highpriority",
     "status": "open",
-    "createdAt": "1/15/2024"
+    "createdAt": "2/35/2024"
   },
   {
     "id": 1009,
@@ -78,7 +78,7 @@
     "customer": "Jashim Uddin",
     "priority": "low priority",
     "status": "In Progress",
-    "createdAt": "1/15/2024"
+    "createdAt": "4/25/2024"
   },
   {
     "id": 1010,
@@ -87,6 +87,6 @@
     "customer": "TechCorp Ltd",
     "priority": "highpriority",
     "status": "In Progress",
-    "createdAt": "1/15/2024"
+    "createdAt": "2/25/2024"
   }
 ]
