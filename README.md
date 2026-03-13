@@ -1,16 +1,22 @@
-# React + Vite
+১. JSX কী এবং এটা কেন ব্যবহার করি?
+JSX এর মানে হলো JavaScript XML। সহজ কথায়, জাভাস্ক্রিপ্ট ফাইলের ভেতর HTML এর মতো কোড লেখার যে নিয়ম, সেটাই হলো JSX।
+কেন ব্যবহার করি: আগে জাভাস্ক্রিপ্ট দিয়ে UI বানাতে হলে অনেক কঠিন কোড লিখতে হতো। JSX আসার ফলে আমরা খুব সহজেই HTML এর মতো করে ডিজাইন করতে পারি, যা কোড পড়তে এবং বুঝতে অনেক সুবিধা দেয়। ব্রাউজার সরাসরি এটা বোঝে না, তাই Babel এটাকে সাধারণ জাভাস্ক্রিপ্টে কনভার্ট করে দেয়।
+২. State আর Props এর মধ্যে পার্থক্য কী?
+এই দুইটা জিনিসই ডেটা নিয়ে কাজ করে, কিন্তু এদের কাজ করার ধরন আলাদা:
+React-এ State হলো একটি কম্পোনেন্টের নিজস্ব, পরিবর্তনযোগ্য (mutable) ডাটা যা কম্পোনেন্টের ভেতরেই ম্যানেজ করা হয় । অন্যদিকে, Props (properties) হলো অভিভাবক (parent) কম্পোনেন্ট থেকে চাইল্ড কম্পোনেন্টে পাঠানো অপরিবর্তনীয় (immutable) ডাটা । প্রধান পার্থক্য হলো, স্টেট কম্পোনেন্ট নিজে আপডেট করতে পারে, কিন্তু প্রপস শুধু রিড-অনলি (read-only) হিসেবে ব্যবহৃত হয়
+৩. useState হুক কী এবং এটা কীভাবে কাজ করে?
+useState হলো React এর একটা স্পেশাল ফাংশন, যা ফাংশনাল কম্পোনেন্টে স্টেট ধরে রাখতে সাহায্য করে।
+কাজ করার নিয়ম: যখন আমরা useState কল করি, তখন এটি আমাদের একটা 'Variable' (মান রাখার জন্য) আর একটা 'Function' (মান পরিবর্তন করার জন্য) দেয়। যেমন: const [count, setCount] = useState(0); এখানে count হলো বর্তমান মান আর setCount দিয়ে আমরা এই মানটা আপডেট করি। মান আপডেট হলেই স্ক্রিনে নতুন রেজাল্ট দেখা যায়।
+৪. কম্পোনেন্টগুলোর মধ্যে State শেয়ার করার উপায়
+React এ স্টেট শেয়ার করার কয়েকটা জনপ্রিয় উপায় আছে:
+Lifting State Up: যদি দুইটা পাশাপাশি থাকা (Sibling) কম্পোনেন্টের মধ্যে ডেটা শেয়ার করতে হয়, তবে সেই স্টেটকে তাদের কমন 'Parent' কম্পোনেন্টে নিয়ে যেতে হয়। এরপর Props দিয়ে সবার কাছে পাঠানো হয়।
+Context API: যখন অনেকগুলো কম্পোনেন্টের ভেতর দিয়ে ডেটা পাস করতে হয় (যাকে Prop Drilling বলে), তখন ঝামেলা এড়াতে Context API ব্যবহার করা হয়। এতে সরাসরি যেকোনো কম্পোনেন্ট থেকে ডেটা এক্সেস করা যায়।
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+৫. React এ Event Handling কীভাবে করে?
+React এ ইভেন্ট হ্যান্ডলিং অনেকটা সাধারণ HTML এর মতোই, তবে লেখার ধরনে সামান্য পার্থক্য আছে:
+১. এখানে ইভেন্টের নামগুলো camelCase এ লিখতে হয় (যেমন: onclick না লিখে onClick, onchange না লিখে onChange)।
+২. ইভেন্টের ভেতর ফাংশন হিসেবে মান পাস করতে হয়। যেমন: <button onClick={handleClick}>ক্লিক করুন</button> এখানে বাটন ক্লিক করলে handleClick ফাংশনটা কাজ করবে।
+ 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
