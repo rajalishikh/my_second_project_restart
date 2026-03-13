@@ -1,19 +1,46 @@
+import { useState } from "react";
+import { toast, ToastContainer } from 'react-toastify';
 
-const Main_Section = ({cards}) => {
-    console.log("Total cards",cards)
+const Main_Section = ({cards,progress,SetProgress}) => {
+  const notify = () => toast("Your card has been added successfully");
+    
+    const [singleCard,SetSingleCard]=useState([])
+    const notify2 = () => toast("Resolved task Successfully");
+    
+
+    const handleCard=(id)=>{
+      console.log("Card Id",id)
+      const find_Value=document.getElementById("First_result")
+      find_Value.classList.add("hidden")
+
+      const find_Complete_Card=document.getElementById("complete_card")
+      find_Complete_Card.classList.remove("hidden")
+      const FindCards=cards.filter(item=>item.id ===id )
+      SetSingleCard((prevCards=>[...prevCards,...FindCards]))
+      SetProgress(progress+1)
+      notify()
+       
+     
+    }
+    const handleComplete=()=>{
+      notify2()
+    }
+    console.log("my single card",singleCard)
     return (
         <div className='flex  flex-col lg:flex-row lg:justify-between gap-5 pb-4'>
             {/* Customer cards  */}
             <div>
-                <h2>Customer Tickets</h2>
+                <h2 className="text-3xl font-bold text-[#34485A]">Customer Tickets</h2>
 
             
             <div className=" grid grid-cols-1  lg:grid-cols-2 gap-2">
                 {
-                    cards.map((item)=><div className="max-w-xl bg-white p-6 rounded-xl border border-gray-100 shadow-sm font-sans">
+                    cards.map((item,index)=>
+                    
+                    <div key={index} onClick={()=>handleCard(item.id)} className="max-w-xl bg-white p-6 rounded-xl border border-gray-100 shadow-sm font-sans">
       {/* Top Section: Title and Status */}
       <div className="flex justify-between items-start mb-3">
-        <h2 className="text-[22px] font-semibold text-[#1e293b] leading-tight">
+        <h2 className="text-[22px] font-semibold text-[#001931] leading-tight">
           {item.title}
         </h2>
         <div className={`flex items-center ${item.status==="open"?"bg-[#dcfce7]":"bg-[#F8F3B9]"}  px-4 py-1.5 rounded-full`}>
@@ -52,21 +79,48 @@ const Main_Section = ({cards}) => {
           </div>
         </div>
       </div>
-    </div>)
+                    </div>)
                 }
-
+<ToastContainer />
             </div>
             </div>
 
             {/* customer chose cards */}
-            <div>
-                <div>
-                    <h2>Task Status</h2>
-                    <p>Select a ticket to add to Task Status</p>
+            <div className="gap-3">
+              <h2 className="text-3xl font-bold text-[#34485A]">Task Status</h2>
+              <div id="complete_card" className="hidden">
+                {singleCard.map(item=>
+                <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100 max-w-sm w-full mb-2">
+        
+        {/* Title Text */}
+        <h2 className="text-[#0a1d37] text-[22px] font-medium mb-8 text-left">
+         {item.title}
+        </h2>
+
+        {/* Action Button */}
+        <button 
+          onClick={handleComplete}
+          className="w-full bg-[#00a843] hover:bg-[#008f39] text-white text-lg font-medium py-3 rounded-md transition-colors duration-200"
+          
+        >
+          Complete
+        </button>
+        
+                </div>)}
+                
+
+              </div>
+                <div id="First_result" className="mb-2">
+                    
+                    <p className="text-sm text-[#627382]">Select a ticket to add to Task Status</p>
                 </div>
                 <div>
-                    <h2>Resolved Task</h2>
+                    <h2 className="text-3xl font-bold text-[#34485A]">Resolved Task</h2>
                     <p>No resolved tasks yet.</p>
+
+                </div>
+                <div>
+
                 </div>
 
             </div>
