@@ -5,6 +5,7 @@ import Main_Section from "../Main_Section/Main_Section";
 const Result = () => {
     const [cardS,setCardS]=useState([])
     const[progress,SetProgress]=useState(0)
+    const [resolved,SetResolved]=useState(0)
 
     useEffect(() => {
         const loadData = async () => {
@@ -46,7 +47,7 @@ const Result = () => {
             <img src={imag1} class="absolute top-0 right-0  w-1/2  scale-x-[-1]  "  alt="DESIGN" />
             <div class="z-10 text-center">
                 <p class="text-sm lg:text-xl font-light tracking-wide opacity-90">Resolved</p>
-                <h1 class="text-sm lg:text-8xl font-bold mt-2">0</h1>
+                <h1 class="text-sm lg:text-8xl font-bold mt-2">{resolved}</h1>
             </div>
        
       </div>
@@ -56,7 +57,7 @@ const Result = () => {
             {/* Selected Banner section close  */}
 
             {/* Main Section Start  */}
-        <Main_Section progress={progress} SetProgress={SetProgress} cards={cardS}></Main_Section>
+        <Main_Section progress={progress} SetProgress={SetProgress} cards={cardS} resolved={resolved} SetResolved={SetResolved}></Main_Section>
 
 
             {/* Main Section End  */}

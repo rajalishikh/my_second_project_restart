@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast, ToastContainer } from 'react-toastify';
 
-const Main_Section = ({cards,progress,SetProgress}) => {
+const Main_Section = ({cards,progress,SetProgress,SetResolved,resolved}) => {
   const notify = () => toast("Your card has been added successfully");
     
     const [singleCard,SetSingleCard]=useState([])
@@ -9,7 +9,7 @@ const Main_Section = ({cards,progress,SetProgress}) => {
     
 
     const handleCard=(id)=>{
-      console.log("Card Id",id)
+      
       const find_Value=document.getElementById("First_result")
       find_Value.classList.add("hidden")
 
@@ -19,11 +19,16 @@ const Main_Section = ({cards,progress,SetProgress}) => {
       SetSingleCard((prevCards=>[...prevCards,...FindCards]))
       SetProgress(progress+1)
       notify()
-       
-     
+ 
     }
     const handleComplete=()=>{
+      
       notify2()
+      SetResolved(resolved+1)
+      SetProgress(progress-1)
+     
+      
+      
     }
     console.log("my single card",singleCard)
     return (
@@ -99,7 +104,7 @@ const Main_Section = ({cards,progress,SetProgress}) => {
 
         {/* Action Button */}
         <button 
-          onClick={handleComplete}
+          onClick={()=>handleComplete(item.id)}
           className="w-full bg-[#00a843] hover:bg-[#008f39] text-white text-lg font-medium py-3 rounded-md transition-colors duration-200"
           
         >
